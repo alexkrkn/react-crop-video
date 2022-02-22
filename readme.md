@@ -10,8 +10,6 @@ Source code for the screencast <a href="https://youtu.be/vDxZLN6FVqY" target="_b
 
 - clone the repo
 - run `npm install`
-- get a free API key at <a href="https://videoapikit.com" target="_blank">VideoApiKit.com</a>
-- create a `.env` file at the root of the folder with the following: `VITE_API_SECRET=<YOU_API_KEY>`
 - run `npm run dev` 🚀
 
 Don't forget to <a href="https://www.youtube.com/bitesizeacademy?sub_confirmation=1">subscribe</a>

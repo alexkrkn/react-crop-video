@@ -14,16 +14,26 @@ interface Asset {
   width: number | null;
 }
 
+const SECRET = import.meta.env.VITE_API_SECRET;
+/**
+ * In order to make requests to the API, you'll need an API key:
+ *
+ *   - get a free API key from https://VideoApiKit.com
+ *   - create a file named `.env` at the root of the project with the following content: `VITE_API_SECRET=<YOU_API_KEY>`
+ *   - restart your vite project (exit and re-run with `npm run dev`)
+ *
+ */
+
 const apiRequest = async <B, R>(method: 'GET' | 'POST', url: string, data: B): Promise<R> => {
-  if (!import.meta.env.VITE_API_SECRET) {
-    throw Error('API secret must be provided (see readme)');
+  if (!SECRET) {
+    throw Error('API secret must be provided (see src/use-edit-video.tsx for instructions)');
   }
   try {
     const res = await axios({
       url,
       method,
       baseURL: 'https://api.videoapikit.com/v1',
-      headers: { 'Authorization': `Bearer ${import.meta.env.VITE_API_SECRET}` },
+      headers: { 'Authorization': `Bearer ${SECRET}` },
       data,
     });
     if (!res.data) {
